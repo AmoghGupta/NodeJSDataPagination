@@ -1,0 +1,41 @@
+<main>
+     {{#if shopPage}}
+        <h1 style="background-color: #2874f0">Welcome to Shopping Page</h1>
+    {{/if}}
+    <div style="width:70%" class="container-buy">
+         <h2>Shopping Items</h2>
+         <div class="shopping-card-container">
+         {{!-- <p>{{pageMessage}}</p> --}}
+       {{#if noData}}
+            <h1 style="color:black;">No Data Found</h1>
+         {{/if}}
+         
+        {{#each products as |item|}}
+        
+            <div class="shopping-card" style="margin: 1rem;max-width: 15rem;flex: 1;height: 15rem;border: 1px solid grey;width: 12rem;">
+                
+                <div style="text-align: center;font-size: 20px;padding-top: 10px;font-weight: bold;color: black;">
+                    <span>{{item.productName}}</span>
+                </div>
+            
+                <div style="text-align: center;">
+                    <img src="{{item.productImage}}" width="120px" height="120px"> 
+                </div> 
+                <div style="text-align: center;">
+                    <span>{{item.productDescription}}</span>
+                </div>
+                <div style="text-align: center;padding-top: 2rem;">
+                    <a href="#" style="padding: 8px;border: 1px solid grey;color: white;background: #2874f0;border-radius: 5px;">Add to cart</a>
+                </div> 
+                
+            </div> 
+        {{/each}}
+        </div>
+            
+    </div>
+    
+     {{!-- <span>Download Invoice: <a href="/orders/12345">Download invoice</a></span> --}}
+     {{#if errorMessage}}
+        <p>{{errorMessage}}</p>
+    {{/if}}
+</main>
